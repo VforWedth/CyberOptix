@@ -20,13 +20,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from flame.views import index
+from flame.views import home
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("flame.urls"))
+    path('', include("flame.urls")),
+    path('user/', include("userauths.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

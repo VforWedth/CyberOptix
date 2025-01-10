@@ -1,10 +1,10 @@
 from django.urls import path 
-from flame.views import index
+from flame.views import home
 
 from . import views
 
 app_name = "flame"
 
 urlpatterns = [
-    path("laptops/", views.index)
+    path("", views.home, name= "home")
 ]

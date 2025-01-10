@@ -28,10 +28,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'userauths.User'
 
 # Application definition
 
 INSTALLED_APPS = [
+    
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     
     #Custom Apps
     'flame',
+    'userauths'    #this is when we want to add other userauth but this won t work :')
 ]
 
 MIDDLEWARE = [
@@ -133,3 +137,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTING = {
+    'site_header' : "CyberOptix",
+    'site_brand' : "Browse Here",
+    #'site_logo' : "CyberOptix",
+    'copyright' : "cyberoptix.com",
+    
+}
+
