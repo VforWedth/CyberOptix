@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberOptix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.mi.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            background-color: #95A1A1;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: white;
+        }
+        .navbar {
+            display: flex;
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #4A5C6A;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: lowercase;
+        }
+
+        .navbar .logo i {
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar nav a {
+            color:white;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .navbar .menu-icon {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .hero {
+            position: relative;
+            text-align: left;
+            padding: 50px;
+            height: 70vh;
+            color: black;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+        }
+        
+
+        .hero .content {
+            position: absolute;
+            top: 70%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            color: #4A5C6A;
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .hero .content h5{
+            font-size: 3em;
+            font-weight: bold;
+            font-size: 2.5em;
+            margin: 0 0 20px;
+        }
+
+        .hero .content p {
+            margin: 15px 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .hero .content button {
+            background-color:#4A5C6A;
+            align: left;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero .content button:hover {
+            background-color: #CCD0CF;
+            color: black;
+        }
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the container without distortion */
+            transform: translate(-50%, -50%); /* Center the video */
+            z-index: -1; /* Place the video behind content */
+        }
+        
+
+        .filters {
+            background-color:#4A5C6A;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            margin:0.5px auto;
+            border-radius: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .filters select,
+        .filters input {
+            background-color:white;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none;
+            width: auto;
+            
+        }
+
+        .filters input {
+            flex-grow: 1;
+        }
+
+        .filters button {
+            background-color:white;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filters button:hover {
+            background-color: white;
+            color: #333;
+            border: 1px solid #333;
+        }
+
+        .filters i {
+            font-size: 1.2em;
+            color:black;
+            vertical-align: middle;
+        }
+
+       
+        .navbar {
+            display: flex;
+            color: white; /* Ensures text is white */
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #4A5C6A;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar a, 
+        .navbar span, 
+        .navbar p { /* Targets text elements inside the navbar */
+            color: white; /* Sets the text color explicitly */
+            text-decoration: none; /* Removes underline for links */
+        }
+        
+        .navbar .icon {
+            color: white; /* Ensures icons (font-based) are white */
+            fill: white; /* Ensures SVG icons are white */
+        }
+        
+        /* Optional: Hover effects for better UX */
+        .navbar a:hover, 
+        .navbar .icon:hover {
+            opacity: 0.8; /* Slight dimming effect on hover */
+        }
+        
+        .search-cart input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+       
+        .products {
+            padding: 20px;
+        }
+
+        .products h2 {
+            margin-bottom: 15px;
+        }
+
+        .card {
+            margin: 15px; /* Adds space between cards */
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Soft shadow for luxury feel */
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s; /* Smooth animation */
+            border-radius: 12px; /* Rounded corners for elegance */
+            overflow: hidden; /* Prevents content overflow */
+            background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Luxurious gradient background */
+            width: 100%;
+            max-width: 300px; /* Slightly wider for a luxury look */
+            border: 1px solid #e0e0e0; /* Subtle border for structure */
+            padding: 10px; /* Adds space between the border and the content (including the image) */
+            flex: 0 0 auto; /* Prevent shrinking or growing */
+            margin: 10px; /* Keep original margin */
+        }
+        
+        .card img {
+            height: 173px; /* Fixed height for all images */
+            width: 100%; /* Ensures the image width stretches to fill the card */
+            object-fit: cover; /* Ensures the image covers the space without stretching */
+            border-bottom: 2px solid #ddd; /* Distinct separation from content */
+        }
+        
+        
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.03); /* Elevates and enlarges slightly on hover */
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hover effect */
+            background: linear-gradient(145deg, #f9f9f9, #ffffff); /* Slightly lighter gradient on hover */
+        }
+        
+        .card-body {
+            padding: 15px 20px; /* Comfortable padding */
+            text-align: center; /* Centers text for focus */
+            background-color: white; /* Clean and minimal content area */
+        }
+        
+        .card-footer .price {
+            font-weight: bold;
+            font-size: 1.2em; /* Larger for emphasis */
+            color: #c0392b; /* Luxurious red tone for price */
+        }
+        .card-title {
+            font-size: 1.3em; /* Slightly larger font size for importance */
+            font-weight: bold;
+            margin: 10px 0;
+            color: #2c3e50; /* Deep and professional color */
+            text-transform: capitalize;
+        }
+        
+        .card-text {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .card-footer {
+            padding: 15px;
+            border-top: 2px solid #ddd;
+            background-color: #CCD0CF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .shop-card-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows wrapping to the next row */
+            justify-content: space-between; /* Ensures equal spacing */
+            gap: 20px; /* Space between cards */
+        }
+        
+        .shop-card {
+            display: flex; /* Align content horizontally */
+            align-items: center; /* Vertically center-align items */
+            background-color: #F5F5F5;
+            border: 1px solid #DDD;
+            border-radius: 15px;
+            padding: 10px;
+            font-weight:bold;
+            width: calc(25% - 20px); /* Two cards per row */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
+        }
+        
+        .shop-card:hover {
+            transform: scale(1.05); /* Slightly enlarge the card */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+        }
+        
+        .shop-card img {
+            width: 80px; /* Set a fixed width for images */
+            height: 80px; /* Maintain consistent size */
+            border-radius: 50%; /* Makes the image circular */
+            margin-right: 15px; /* Space between image and text */
+            transition: transform 0.3s ease; /* Smooth transition for image */
+        }
+        
+        .shop-card:hover img {
+            transform: rotate(3deg); /* Rotate the image slightly on hover */
+        }
+        
+        .shop-info h5 {
+            font-size: 1.9em;
+            margin: 0;
+            color: #4A5C6A;
+            font-weight: bold;
+
+            font-family:Times New Roman;
+
+            transition: color 0.3s ease; /* Smooth color change */
+        }
+        
+        .shop-info h5:hover {
+            color: #2C3E50; /* Change color of the text on hover */
+        }
+        
+        .shop-info a {
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 1.5em;
+            text-decoration: none;
+            color: #4A5C6A;
+            font-weight: bold;
+            font-family:Times New Roman;
+            transition: color 0.3s ease; /* Smooth color change */
+        }
+        
+        .shop-info a:hover {
+            color: #2C3E50; /* Change color on hover */
+        }
+        
+        
+        .btn {
+            background-color: #4A5C6A; /* Luxurious dark grey shade */
+            color: white;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            border-radius: 20px; /* Rounded for a luxury look */
+            text-transform: uppercase;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow for depth */
+            transition: background-color 0.3s, transform 0.2s; /* Smooth hover effects */
+        }
+        
+        .card-footer .btn:hover {
+            background-color: #354451; /* Darker grey shade on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+        
+        
+        .search-cart input {
+            padding: 5px;
+            margin-right: 10px;
+            border-radius: 20px;
+        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+    
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+    
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+    
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    
+        .carousel-btn.left {
+            left: 10px;
+        }
+    
+        .carousel-btn.right {
+            right: 10px;
+        }
+    
+        .carousel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        footer {
+            background-color: #CCD0Cf;
+            color: #4A5C6A;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+            margin-top: auto; /* Keeps footer at the bottom */
+            width: 100vw; /* Ensures the footer spans the full width */
+            height: auto; /* Dynamically adjusts height based on content */
+            box-sizing: border-box; /* Includes padding in width calculation */
+            margin: 0; /* Removes any extra space on the sides */
+        }
+        
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px; /* Restricts content width for a cleaner layout */
+            margin: 0 auto; /* Centers the footer content */
+        }
+        
+        .footer-links h4, .footer-contact h4 {
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li, .footer-contact p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .footer-contact p {
+            line-height: 1.5;
+        }
+        .footer-links a {
+            text-decoration: none; /* Removes underline */
+            color: #4A5C6A; /* Sets the link color */
+            transition: color 0.3s ease; /* Smooth color transition on hover */
+        }
+        
+        
+        .social-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            margin-right: 15px;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #ddd;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        
+            .social-icons {
+                justify-content: center;
+            }
+        }
+        .carousel-btn.left {
+            left: 10px;
+        }
+
+        .carousel-btn.right {
+            right: 10px;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .carousel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .carousel-container {
+            display: flex;
+            overflow-x: scroll;
+            scrollbar-width: none; /* For Firefox */
+            scroll-behavior: smooth; /* Ensure smooth scroll behavior */
+        }
+        
+        .carousel-container::-webkit-scrollbar {
+            display: none; /* For Webkit browsers like Chrome, Safari */
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carouselInner = document.querySelector(".carousel-inner");
+            const items = document.querySelectorAll(".carousel-item");
+            const prevBtn = document.querySelector(".carousel-btn.left");
+            const nextBtn = document.querySelector(".carousel-btn.right");
+            let currentIndex = 0;
+    
+            function updateCarousel() {
+                const translateX = -currentIndex * 100;
+                carouselInner.style.transform = `translateX(${translateX}%)`;
+            }
+    
+            prevBtn.addEventListener("click", function () {
+                currentIndex = (currentIndex === 0) ? items.length - 1 : currentIndex - 1;
+                updateCarousel();
+            });
+    
+            nextBtn.addEventListener("click", function () {
+                currentIndex = (currentIndex === items.length - 1) ? 0 : currentIndex + 1;
+                updateCarousel();
+            });
+        });
+    </script>
+    
+
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-laptop"></i> CyberOptix
+        </div>
+        <nav>
+            <a href="#"> Home</a>
+            <a href="#"> Shop</a>
+            <a href="#"> About</a>
+            <a href="#"> FAQs</a>
+            <a href="#"><i class="fas fa-shopping-bag"></i></a>
+            <a href="login.html" style="text-decoration: none; color: #CCD0CF;">
+                <i class="fas fa-user-circle" style="font-size: 1.5rem;"></i>
+            </a>
+        </nav>
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="hero">
+        <video autoplay loop muted>
+            <source src="Homevd.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    <!-- Filters -->
+        <!-- Filters -->
+        <div class="filters">
+            <select>
+                <option value="Categories">Categories</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Desktop">Desktop</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Other Items">Other Items</option>
+                <option value="Brands">Brands</option>
+                <option value="RAM">RAM</option>
+                <option value="More">More</option>
+            </select>
+            <select>
+                <option>New Product</option>
+            </select>
+            <input type="text" placeholder="Search...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        
+        <!-- Hero Section -->
+       
+            <div class="content">
+                <h5> Best laptops for a refined lifestyle.</h5>
+                <button>Start Shopping</button>
+            </div>
+        </div>
+        
+<br><br>
+
+    <div class="products">
+        <div class="title">
+    <h1 style="text-align:center;font-weight: bold;font-weight:Times New Roman;color:#4A5C6A;">Shops</h1><br>
+    <h4 style="text-align:center;color:#4A5C6A;font-weight:Times New Roman;">Discover the perfect laptops and everyday essentials at unbeatable prices, tailored to meet all your needs with quality and convenience.</h4><br>
+        </div>
+        <br><br>
+<!-- Shop Card Container -->
+<div class="shop-card-container">
+    <!-- Unique Shop -->
+    <div class="shop-card">
+        <img src="Unique.jpg" alt="Unique Shop">
+        <div class="shop-info">
+            <h5>Unique</h5>
+            <a href="#">View Shop</a>
+        </div>
+    </div>
+
+    <!-- ICT Shop -->
+    <div class="shop-card">
+        <img src="Ict2.jpg" alt="ICT Shop">
+        <div class="shop-info">
+            <h5>ICT</h5>
+            <a href="#">View Shop</a>
+        </div>
+    </div>
+
+    <!-- Innwa Shop -->
+    <div class="shop-card">
+        <img src="ICT.jpg" alt="Innwa Shop">
+        <div class="shop-info">
+            <h5>Innwa</h5>
+            <a href="#">View Shop</a>
+        </div>
+    </div>
+
+    <!-- Citicom Shop -->
+    <div class="shop-card">
+        <img src="Citicom.jpg" alt="Citicom Shop">
+        <div class="shop-info">
+            <h5>Citicom</h5>
+            <a href="#">View Shop</a>
+        </div>
+    </div>
+</div>
+<br>
+
+</div>
+<br><br>
+<hr></hr>
+<br>
+<h1 style="text-align:center;font-weight: bold;font-weight:Times New Roman;color:#4A5C6A;">Most Popular Items</h1>
+   <br>
+<div class="carousel-container">
+    <!-- 12 Cards -->
+    <div class="card">
+        <img src="Unique/U_Asus/U_Asus2/U_Asus2.1.jpg" class="card-img-top" alt="ASUS VivoBook">        <div class="card-body">
+            <h5 class="card-title">ASUS VivoBook 15 F515 Thin and Light Laptop</h5>
+        </div>
+        <div class="card-footer">
+            <span class="price">$599.99</span>
+            <button class="btn">View Product</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="Unique/U_Dell/U_Dell9/U_Dell9.1.jpg" class="card-img-top" alt="Dell Inspiron">        <div class="card-body">
+            <h5 class="card-title">Dell Inspiron 15 5502, FHD Thin & Light Laptop</h5>
+        </div>
+        <div class="card-footer">
+            <span class="price">$640.00</span>
+            <button class="btn">View Product</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="Unique/U_Other Laptop/U_Microsoft3/U_Microsoft3.1.jpg" class="card-img-top" alt="Microsoft Surface">        <div class="card-body">
+            <h5 class="card-title">Microsoft Surface Laptop Go - 12.4" Touchscreen</h5>
+        </div>
+        <div class="card-footer">
+            <span class="price">$699.99</span>
+            <button class="btn">View Product</button>
+        </div>
+    </div>   <div class="card">
+        <img src="Unique/U_Lenovo/U_Lenovo2/U_Lenovo2.2.jpg" class="card-img-top" alt="Lenovo Yoga">        <div class="card-body">
+            <h5 class="card-title">Lenovo Yoga 7i 2-in-1 Laptop</h5>
+        </div>
+        <div class="card-footer">
+            <span class="price">$749.49</span>
+            <button class="btn">View Product</button>
+        </div>
+    </div>   <div class="card">
+        <img src="Unique/U_Hp/U_Hp7/U_Hp7.2.jpg" class="card-img-top" alt="HP Laptop">        <div class="card-body">
+            <h5 class="card-title">HP 17 inch Laptop for Business and Students</h5>
+        </div>
+        <div class="card-footer">
+            <span class="price">$528.99</span>
+            <button class="btn">View Product</button>
+        </div>
+    </div>   <div class="card">
+        <img src="Unique/U_Acer/U_Acer4/U_Acer4.1.jpg" class="card-img-top" alt="Acer Swift Go">        <div class="card-body">
+            <h5 class="card-title">Acer Swift Go 16-2024 New Laptop - 16" WUXGA IPS</h5>
+        </div>
+        <div class="card-footer">
+            <span class="price">$897.49</span>
+            <button class="btn">View Product</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="Unique/U_MacBook/U_Mac3/U_Mac3.1.jpg" class="card-img-top" alt="MacBook Pro">        <div class="card-body">
+            <h5 class="card-title">Apple 2023 MacBook Pro Laptop M3 chip</h5>
+        </div>
+        <div class="card-footer">
+            <span class="price">$1168.44</span>
+            <button class="btn">View Product</button>
+        </div>
+    </div>
+   
+    <!-- Repeat similarly for 10 more cards -->
+
+</div>
+
+<!-- Navigation Buttons -->
+<button class="carousel-btn left">&lt;</button>
+<button class="carousel-btn right">&gt;</button>
+
+    <br>
+    <hr></hr>
+    
+            <div class="products">
+                <h1 style="text-align:center;font-weight: bold;font-weight:Times New Roman;color:#4A5C6A;"> New Items </h1><br>
+                <div class="carousel-container">
+                    <!-- 12 Cards -->
+                    <div class="card">
+                        <img src="Unique/U_Asus/U_Asus2/U_Asus2.1.jpg" class="card-img-top" alt="ASUS VivoBook">        <div class="card-body">
+                            <h5 class="card-title">ASUS VivoBook 15 F515 Thin and Light Laptop</h5>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$599.99</span>
+                            <button class="btn">View Product</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Unique/U_Dell/U_Dell9/U_Dell9.1.jpg" class="card-img-top" alt="Dell Inspiron">        <div class="card-body">
+                            <h5 class="card-title">Dell Inspiron 15 5502, FHD Thin & Light Laptop</h5>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$640.00</span>
+                            <button class="btn">View Product</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Unique/U_Other Laptop/U_Microsoft3/U_Microsoft3.1.jpg" class="card-img-top" alt="Microsoft Surface">        <div class="card-body">
+                            <h5 class="card-title">Microsoft Surface Laptop Go - 12.4" Touchscreen</h5>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$699.99</span>
+                            <button class="btn">View Product</button>
+                        </div>
+                    </div>   <div class="card">
+                        <img src="Unique/U_Lenovo/U_Lenovo2/U_Lenovo2.2.jpg" class="card-img-top" alt="Lenovo Yoga">        <div class="card-body">
+                            <h5 class="card-title">Lenovo Yoga 7i 2-in-1 Laptop</h5>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$749.49</span>
+                            <button class="btn">View Product</button>
+                        </div>
+                    </div>   <div class="card">
+                        <img src="Unique/U_Hp/U_Hp7/U_Hp7.2.jpg" class="card-img-top" alt="HP Laptop">        <div class="card-body">
+                            <h5 class="card-title">HP 17 inch Laptop for Business and Students</h5>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$528.99</span>
+                            <button class="btn">View Product</button>
+                        </div>
+                    </div>   <div class="card">
+                        <img src="Unique/U_Acer/U_Acer4/U_Acer4.1.jpg" class="card-img-top" alt="Acer Swift Go">        <div class="card-body">
+                            <h5 class="card-title">Acer Swift Go 16-2024 New Laptop - 16" WUXGA IPS</h5>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$897.49</span>
+                            <button class="btn">View Product</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Unique/U_MacBook/U_Mac3/U_Mac3.1.jpg" class="card-img-top" alt="MacBook Pro">        <div class="card-body">
+                            <h5 class="card-title">Apple 2023 MacBook Pro Laptop M3 chip</h5>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$1168.44</span>
+                            <button class="btn">View Product</button>
+                        </div>
+                    </div>
+                   
+                    <!-- Repeat similarly for 10 more cards -->
+                
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <button class="carousel-btn left">&lt;</button>
+                <button class="carousel-btn right">&gt;</button>
+                
+                    <br>
+                    <hr></hr>
+        <br>
+                    <div class="products">
+                        <h1 style="text-align:center;font-weight: bold;font-weight:Times New Roman;color:#4A5C6A;">Discount Items </h1><be><br>
+                            <div class="carousel-container">
+                                <!-- 12 Cards -->
+                                <div class="card">
+                                    <img src="Unique/U_Asus/U_Asus2/U_Asus2.1.jpg" class="card-img-top" alt="ASUS VivoBook">        <div class="card-body">
+                                        <h5 class="card-title">ASUS VivoBook 15 F515 Thin and Light Laptop</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="price">$599.99</span>
+                                        <button class="btn">View Product</button>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="Unique/U_Dell/U_Dell9/U_Dell9.1.jpg" class="card-img-top" alt="Dell Inspiron">        <div class="card-body">
+                                        <h5 class="card-title">Dell Inspiron 15 5502, FHD Thin & Light Laptop</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="price">$640.00</span>
+                                        <button class="btn">View Product</button>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="Unique/U_Other Laptop/U_Microsoft3/U_Microsoft3.1.jpg" class="card-img-top" alt="Microsoft Surface">        <div class="card-body">
+                                        <h5 class="card-title">Microsoft Surface Laptop Go - 12.4" Touchscreen</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="price">$699.99</span>
+                                        <button class="btn">View Product</button>
+                                    </div>
+                                </div>   <div class="card">
+                                    <img src="Unique/U_Lenovo/U_Lenovo2/U_Lenovo2.2.jpg" class="card-img-top" alt="Lenovo Yoga">        <div class="card-body">
+                                        <h5 class="card-title">Lenovo Yoga 7i 2-in-1 Laptop</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="price">$749.49</span>
+                                        <button class="btn">View Product</button>
+                                    </div>
+                                </div>   <div class="card">
+                                    <img src="Unique/U_Hp/U_Hp7/U_Hp7.2.jpg" class="card-img-top" alt="HP Laptop">        <div class="card-body">
+                                        <h5 class="card-title">HP 17 inch Laptop for Business and Students</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="price">$528.99</span>
+                                        <button class="btn">View Product</button>
+                                    </div>
+                                </div>   <div class="card">
+                                    <img src="Unique/U_Acer/U_Acer4/U_Acer4.1.jpg" class="card-img-top" alt="Acer Swift Go">        <div class="card-body">
+                                        <h5 class="card-title">Acer Swift Go 16-2024 New Laptop - 16" WUXGA IPS</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="price">$897.49</span>
+                                        <button class="btn">View Product</button>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="Unique/U_MacBook/U_Mac3/U_Mac3.1.jpg" class="card-img-top" alt="MacBook Pro">        <div class="card-body">
+                                        <h5 class="card-title">Apple 2023 MacBook Pro Laptop M3 chip</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="price">$1168.44</span>
+                                        <button class="btn">View Product</button>
+                                    </div>
+                                </div>
+                               
+                                <!-- Repeat similarly for 10 more cards -->
+                            
+                            </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <button class="carousel-btn left">&lt;</button>
+                            <button class="carousel-btn right">&gt;</button>
+                            
+                                <br><br><br>
+                                <hr></hr>
+                
+                                <div>
+                                    <footer>
+                                        <div class="footer-content">
+                                            <div class="footer-left">
+                                            <div class="logo">
+                                                <i class="fas fa-laptop"></i>CyberOptix
+                                            </div><br>
+                                                <p>All Rights Reserved 2024-2025</p>
+                                            </div>
+                                            <div class="footer-links">
+                                                <h4>Information</h4>
+                                                <ul>
+                                                    <li><a href="#about-us">About Us</a></li>
+                                                    <li><a href="#more-search">More Search</a></li>
+                                                    <li><a href="#events">Events</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="footer-links">
+                                                <h4>Helpful Links</h4>
+                                                <ul>
+                                                    <li><a href="#services">Services</a></li>
+                                                    <li><a href="#privacy-policy">Privacy Policy</a></li>
+                                                    <li><a href="#terms-conditions">Terms & Condition</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="footer-links">
+                                                <h4>Our Services</h4>
+                                                <ul>
+                                                    <li><a href="#shops">Shops</a></li>
+                                                    <li><a href="#return-exchange">Return & Exchange</a></li>
+                                                    <li><a href="#leasing">Leasing</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="footer-contact">
+                                                <h4>Contact Us</h4>
+                                                <p>+959 00090999</p>
+                                                <p>cyberoptix@gmail.com</p>
+                                                <div class="social-icons">
+                                                    <a href="#" class="me-3"><i class="bi bi-facebook" style="font-size: 1.5rem; color: #4A5C6A;"></i></a>
+                                                    <a href="#" class="me-3"><i class="bi bi-instagram" style="font-size: 1.5rem; color: #4A5C6A;"></i></a>
+                                                    <a href="#" class="me-3"><i class="bi bi-twitter" style="font-size: 1.5rem; color: #4A5C6A;"></i></a>
+                                                    <a href="#"><i class="bi bi-google" style="font-size: 1.5rem; color: #4A5C6A;"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.carousel-container');
+        const items = container.querySelectorAll('.card');
+        const prevBtn = document.querySelector('.carousel-btn.left');
+        const nextBtn = document.querySelector('.carousel-btn.right');
+        const itemWidth = items[0].offsetWidth + 20; // Added margin
+        let currentIndex = 0;
+
+        const updateButtons = () => {
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === items.length - 1;
+        };
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex = Math.max(currentIndex - 1, 0);
+                container.scrollTo({ left: currentIndex * itemWidth, behavior: 'smooth' });
+                updateButtons();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < items.length - 1) {
+                currentIndex = Math.min(currentIndex + 1, items.length - 1);
+                container.scrollTo({ left: currentIndex * itemWidth, behavior: 'smooth' });
+                updateButtons();
+            }
+        });
+
+        container.addEventListener('scroll', () => {
+            currentIndex = Math.round(container.scrollLeft / itemWidth);
+            currentIndex = Math.min(currentIndex, items.length - 1);
+            currentIndex = Math.max(currentIndex, 0);
+            updateButtons();
+        });
+
+        updateButtons(); // Initialize button states
+    });
+</script>
+
+
+</html>
